@@ -148,5 +148,8 @@ mysql> select * from delivery;
 1 row in set (0.00 sec)
 mysql> drop view delivery;
 Query OK, 0 rows affected (0.02 sec)
+mysql> select * from delivery;
+ERROR 1146 (42S02): Table 'couriers.delivery' doesn't exist
+
 
 
