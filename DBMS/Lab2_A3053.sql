@@ -146,4 +146,7 @@ mysql> select * from delivery;
 | MH00345 | Pending         |
 +---------+-----------------+
 1 row in set (0.00 sec)
+mysql> drop view delivery;
+Query OK, 0 rows affected (0.02 sec)
+
 
