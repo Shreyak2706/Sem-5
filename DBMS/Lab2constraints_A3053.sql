@@ -88,50 +88,7 @@ mysql> create table Voters_2017(Voting_id varchar(10) PRIMARY KEY, Name char(20)
 Query OK, 0 rows affected (0.04 sec)
 
 
-mysql> create view voting as select Name, Region from voting_2022;
-ERROR 1146 (42S02): Table 'voting_2022.voting_2022' doesn't exist
-mysql> create view voting as select Name, Region from voters_2022;
-ERROR 1146 (42S02): Table 'voting_2022.voters_2022' doesn't exist
-mysql> create view voting as select Name, Region from Voters_2022;
-Query OK, 0 rows affected (0.02 sec)
 
-mysql> select * from voting;
-+----------------+--------+
-| Name           | Region |
-+----------------+--------+
-| Neha Patil     | Aundh  |
-| Sakshi Thombre | Jalna  |
-| Akshat Thawait |        |
-+----------------+--------+
-3 rows in set (0.02 sec)
-
-mysql> use couriers;
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
-
-Database changed
-mysql> create view delivery as select item_id, delivery_status from dunzo;
-Query OK, 0 rows affected (0.03 sec)
-
-mysql> select * from dunzo;
-+---------+------------+---------------+-----------------+
-| item_id | item_name  | address       | delivery_status |
-+---------+------------+---------------+-----------------+
-| MH00345 | Donut(MOD) | Chinchwadgaon | Pending         |
-+---------+------------+---------------+-----------------+
-1 row in set (0.03 sec)
-
-mysql> select * from delivery;
-+---------+-----------------+
-| item_id | delivery_status |
-+---------+-----------------+
-| MH00345 | Pending         |
-+---------+-----------------+
-1 row in set (0.00 sec)
-mysql> drop view delivery;
-Query OK, 0 rows affected (0.02 sec)
-mysql> select * from delivery;
-ERROR 1146 (42S02): Table 'couriers.delivery' doesn't exist
 
 
 
