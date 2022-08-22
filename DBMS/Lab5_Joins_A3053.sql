@@ -195,6 +195,22 @@ mysql> SELECT customers.CustomerName, customers.ContactNo, orders.OrderID
 
 mysql> 
 
+mysql> SELECT customers.CustomerName, customers.ContactNo, orders.OrderID
+    -> FROM customers
+    -> RIGHT JOIN orders ON customers.CustomerID = orders.CustomerID
+    -> ORDER BY customers.CustomerName;
++--------------+-----------+---------+
+| CustomerName | ContactNo | OrderID |
++--------------+-----------+---------+
+| NULL         | NULL      |   10309 |
+| Kate R.      | 63774747  |   10311 |
+| Rahul Verma  | 74848738  |   10310 |
+| Riya Sharma  | 938378292 |   10308 |
++--------------+-----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
 
 
 
