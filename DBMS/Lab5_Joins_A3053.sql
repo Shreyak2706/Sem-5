@@ -86,4 +86,116 @@ mysql> SELECT orders.OrderID, customers.CustomerName, orders.OrderDate
 1 row in set (0.00 sec)
 
 mysql> 
+mysql> insert into customers values(77, "Rahul Verma", 74848738, "India");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customers values(28, "Kate R.", 63774747, "London");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from customers;
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | ContactNo | Country |
++------------+--------------+-----------+---------+
+|          1 | John Jacob   | 374582827 | Dubai   |
+|          2 | Riya Sharma  | 938378292 | India   |
+|          3 | Anna Mary    | 83752728  | USA     |
+|          4 | Mary Jane    | 74848738  | Germany |
+|         28 | Kate R.      | 63774747  | London  |
+|         77 | Rahul Verma  | 74848738  | India   |
++------------+--------------+-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT customers.CustomerName, customers.ContactNo, orders.OrderID
+    -> FROM customers
+    -> LEFT JOIN orders ON customers.CustomerID = orders.CustomerID
+    -> ORDER BY customers.CustomerName;
++--------------+-----------+---------+
+| CustomerName | ContactNo | OrderID |
++--------------+-----------+---------+
+| Anna Mary    | 83752728  |    NULL |
+| John Jacob   | 374582827 |    NULL |
+| Kate R.      | 63774747  |   10311 |
+| Mary Jane    | 74848738  |    NULL |
+| Rahul Verma  | 74848738  |   10310 |
+| Riya Sharma  | 938378292 |   10308 |
++--------------+-----------+---------+
+6 rows in set (0.02 sec)
+
+mysql> 
+mysql> insert into customers values(77, "Rahul Verma", 74848738, "India");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customers values(28, "Kate R.", 63774747, "London");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from customers;
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | ContactNo | Country |
++------------+--------------+-----------+---------+
+|          1 | John Jacob   | 374582827 | Dubai   |
+|          2 | Riya Sharma  | 938378292 | India   |
+|          3 | Anna Mary    | 83752728  | USA     |
+|          4 | Mary Jane    | 74848738  | Germany |
+|         28 | Kate R.      | 63774747  | London  |
+|         77 | Rahul Verma  | 74848738  | India   |
++------------+--------------+-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT customers.CustomerName, customers.ContactNo, orders.OrderID
+    -> FROM customers
+    -> LEFT JOIN orders ON customers.CustomerID = orders.CustomerID
+    -> ORDER BY customers.CustomerName;
++--------------+-----------+---------+
+| CustomerName | ContactNo | OrderID |
++--------------+-----------+---------+
+| Anna Mary    | 83752728  |    NULL |
+| John Jacob   | 374582827 |    NULL |
+| Kate R.      | 63774747  |   10311 |
+| Mary Jane    | 74848738  |    NULL |
+| Rahul Verma  | 74848738  |   10310 |
+| Riya Sharma  | 938378292 |   10308 |
++--------------+-----------+---------+
+6 rows in set (0.02 sec)
+
+mysql> 
+mysql> insert into customers values(77, "Rahul Verma", 74848738, "India");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customers values(28, "Kate R.", 63774747, "London");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from customers;
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | ContactNo | Country |
++------------+--------------+-----------+---------+
+|          1 | John Jacob   | 374582827 | Dubai   |
+|          2 | Riya Sharma  | 938378292 | India   |
+|          3 | Anna Mary    | 83752728  | USA     |
+|          4 | Mary Jane    | 74848738  | Germany |
+|         28 | Kate R.      | 63774747  | London  |
+|         77 | Rahul Verma  | 74848738  | India   |
++------------+--------------+-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT customers.CustomerName, customers.ContactNo, orders.OrderID
+    -> FROM customers
+    -> LEFT JOIN orders ON customers.CustomerID = orders.CustomerID
+    -> ORDER BY customers.CustomerName;
++--------------+-----------+---------+
+| CustomerName | ContactNo | OrderID |
++--------------+-----------+---------+
+| Anna Mary    | 83752728  |    NULL |
+| John Jacob   | 374582827 |    NULL |
+| Kate R.      | 63774747  |   10311 |
+| Mary Jane    | 74848738  |    NULL |
+| Rahul Verma  | 74848738  |   10310 |
+| Riya Sharma  | 938378292 |   10308 |
++--------------+-----------+---------+
+6 rows in set (0.02 sec)
+
+mysql> 
+
+
+
+
 
