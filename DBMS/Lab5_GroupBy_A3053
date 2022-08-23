@@ -1,0 +1,31 @@
+mysql> use customerinfo;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from customers;
++------------+--------------+-----------+---------+
+| CustomerID | CustomerName | ContactNo | Country |
++------------+--------------+-----------+---------+
+|          1 | John Jacob   | 374582827 | Dubai   |
+|          2 | Riya Sharma  | 938378292 | India   |
+|          3 | Anna Mary    | 83752728  | USA     |
+|          4 | Mary Jane    | 74848738  | Germany |
+|         28 | Kate R.      | 63774747  | London  |
+|         77 | Rahul Verma  | 74848738  | India   |
++------------+--------------+-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select country, COUNT(*)
+    -> from customers
+    -> group by country;
++---------+----------+
+| country | COUNT(*) |
++---------+----------+
+| Dubai   |        1 |
+| India   |        2 |
+| USA     |        1 |
+| Germany |        1 |
+| London  |        1 |
++---------+----------+
+5 rows in set (0.00 sec)
