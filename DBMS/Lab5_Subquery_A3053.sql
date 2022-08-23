@@ -61,4 +61,12 @@ Income < 35000);
 1 row in set (0.00 sec)
 
 mysql> select
+mysql> select EmpName, EmpAge from employees where EmpAge IN(select EmpAge from employees where EmpAge = 32);
++---------+--------+
+| EmpName | EmpAge |
++---------+--------+
+| Peter   |     32 |
+| Mark    |     32 |
++---------+--------+
+2 rows in set (0.00 sec)
 
