@@ -29,3 +29,31 @@ mysql> select country, COUNT(*)
 | London  |        1 |
 +---------+----------+
 5 rows in set (0.00 sec)
+
+mysql> insert into employees values(101, "Peter", "NewYork", '20009384');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employees values("102, "Mark", "California", '9093874');
+    "> 
+    "> ^C
+mysql> insert into employees values(102, "Mark", "California", '9093874');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employees values(103, "Donald", "Arizona", '70000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employees values(104, "Obama", "Florida", '6780645');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employees;
++-------+---------+------------+----------+
+| EmpID | EmpName | City       | Income   |
++-------+---------+------------+----------+
+|   101 | Peter   | NewYork    | 20009384 |
+|   102 | Mark    | California | 9093874  |
+|   103 | Donald  | Arizona    | 70000    |
+|   104 | Obama   | Florida    | 6780645  |
++-------+---------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> Select COUNT(EmpID
