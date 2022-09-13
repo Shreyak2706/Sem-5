@@ -1,0 +1,11 @@
+create table borrower( Roll_no int, Name varchar(20), DateOfIssue date, NameOfBook varchar(25), Status varchar(25));
+insert into borrower values( 123, 'Raj', '03/01/2022', 'TOC', 'Issued');
+insert into borrower values( 90, 'Om', '11/16/2022', 'CNS', 'Issued');
+insert into borrower values( 120, 'Siya', '06/27/2022', 'OOPS', 'Issued');
+insert into borrower values( 100, 'Diya', '02/01/2022', 'DSA', 'Issued');
+insert into borrower( 102, 'Kalp', '10/18/2022', 'FDS', 'Issued');
+insert into borrower values( 101, 'Mahi', '09/25/2022', 'UI/UX', 'Issued');
+insert into borrower values( 118, 'Yash', '07/31/2022', 'TOC', 'Issued');
+insert into borrower values( 109, 'Anshul', '09/20/2022', 'TOC', 'Issued');
+insert into borrower values( 97, 'Neha', '01/01/2022', 'CNS', 'Issued');
+SELECT * FROM borrower;
