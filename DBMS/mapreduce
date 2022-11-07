@@ -1,0 +1,146 @@
+ubuntu@ubuntu-OptiPlex-5000:~$ mongosh
+Current Mongosh Log ID:	6368cdcc96c9f57a050b3768
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0
+Using MongoDB:		6.0.2
+Using Mongosh:		1.6.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-11-07T14:00:58.338+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2022-11-07T14:00:58.620+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2022-11-07T14:00:58.620+05:30: vm.max_map_count is too low
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+   
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+   
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> use shreya
+switched to db shreya
+shreya> db.createCollection("studentdata");
+MongoServerError: Collection shreya.studentdata already exists.
+shreya> db.studentdata.insert({"name":rajesh, "age":20, "marks":80});
+ReferenceError: rajesh is not defined
+shreya> db.studentdata.insert({"name":'rajesh', "age":20, "marks":80});
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6368ce547b901a136e3ea3ba") }
+}
+shreya> db.studentdata.insert({"name":'arya', "age":20, "marks":65});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6368ce657b901a136e3ea3bb") }
+}
+shreya> db.studentdata.insert({"name":'imran', "age":19, "marks":98});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6368ce787b901a136e3ea3bc") }
+}
+shreya> db.studentdata.insert({"name":'sneha', "age":19, "marks":75});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6368ce877b901a136e3ea3bd") }
+}
+shreya> db.studentdata.insert({"name":'priya', "age":21, "marks":70});
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6368ce9d7b901a136e3ea3be") }
+}
+shreya> var map=function(){emit(this.age this.marks)}
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:33)
+
+> 1 | var map=function(){emit(this.age this.marks)}
+    |                                  ^
+  2 |
+
+shreya> var map=function(){emit(this.age, this.marks)}
+
+shreya> var reduce=function(age, marks){return Array.sum(marks)}
+
+shreya> db.studentdata.mapReduce(map, reduce,{'out':'result1'})
+DeprecationWarning: Collection.mapReduce() is deprecated. Use an aggregation instead.
+See https://docs.mongodb.com/manual/core/map-reduce for details.
+{ result: 'result1', ok: 1 }
+shreya> db.result1.find()
+[
+  { _id: 20, value: 322 },
+  { _id: 19, value: 318 },
+  { _id: 21, value: 165 }
+]
+shreya> db.studentdata.find()
+[
+  {
+    _id: ObjectId("6368cc215e84457f941caa0f"),
+    name: 'amit',
+    age: 20,
+    marks: 87
+  },
+  {
+    _id: ObjectId("6368cc3d5e84457f941caa10"),
+    name: 'riya',
+    age: 19,
+    marks: 80
+  },
+  {
+    _id: ObjectId("6368cc565e84457f941caa11"),
+    name: 'rohan',
+    age: 19,
+    marks: 65
+  },
+  {
+    _id: ObjectId("6368cc675e84457f941caa12"),
+    name: 'rani',
+    age: 20,
+    marks: 90
+  },
+  {
+    _id: ObjectId("6368ccf15e84457f941caa13"),
+    name: 'ishan',
+    age: 21,
+    marks: 95
+  },
+  {
+    _id: ObjectId("6368ce547b901a136e3ea3ba"),
+    name: 'rajesh',
+    age: 20,
+    marks: 80
+  },
+  {
+    _id: ObjectId("6368ce657b901a136e3ea3bb"),
+    name: 'arya',
+    age: 20,
+    marks: 65
+  },
+  {
+    _id: ObjectId("6368ce787b901a136e3ea3bc"),
+    name: 'imran',
+    age: 19,
+    marks: 98
+  },
+  {
+    _id: ObjectId("6368ce877b901a136e3ea3bd"),
+    name: 'sneha',
+    age: 19,
+    marks: 75
+  },
+  {
+    _id: ObjectId("6368ce9d7b901a136e3ea3be"),
+    name: 'priya',
+    age: 21,
+    marks: 70
+  }
+]
+shreya> 
+
